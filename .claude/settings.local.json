@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "MultiEdit",
+      "Bash(powershell:*)",
+      "Bash(touch:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run lint)",
+      "Bash(npx expo lint:*)",
+      "Bash(npx husky init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run format:check:*)",
+      "Bash(npm run format:*)",
+      "Bash(rm:*)"
+    ],
+    "deny": ["Bash(rm -rf *)", "WebFetch(*)", "Bash(curl http://*)"]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": ["context7"],
+  "disabledMcpjsonServers": ["context7"]
+}

@@ -1,50 +1,132 @@
-# Welcome to your Expo app 👋
+# Expo開発テンプレートリポジトリ
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 概要
 
-## Get started
+このリポジトリは、Expo React Native開発のための汎用テンプレートです。新しいプロジェクトを素早く立ち上げるための基盤として設計されており、ベストプラクティスと品質管理ツールが事前設定されています。
 
-1. Install dependencies
+## テンプレートの特徴
 
-   ```bash
-   npm install
-   ```
+### ✅ 設定済みの機能
 
-2. Start the app
+- **TypeScript** - 厳格な型チェック（strict mode）による安全なコード記述
+- **ESLint** - Expoプリセットを使用したコード品質管理
+- **Expo Router** - ファイルベースのルーティングシステム
+- **React Native新アーキテクチャ** - 最新のパフォーマンス最適化
+- **クロスプラットフォーム対応** - iOS、Android、Web対応
+- **絶対パスインポート** - `@/`エイリアスによるクリーンなインポート
 
-   ```bash
-   npx expo start
-   ```
+### 🚧 準備中の機能
 
-In the output, you'll find options to open the app in a
+- **テストフレームワーク** - Jest + React Native Testing Library
+- **CI/CDパイプライン** - GitHub Actions統合
+- **プリコミットフック** - Husky + lint-staged
+- **コンポーネントカタログ** - Storybook統合
+- **環境変数管理** - 開発/本番環境の分離
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## プロジェクト構造
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+```
+expo-template/
+├── app/                    # メインアプリケーションコード
+│   ├── _layout.tsx        # ルートレイアウト
+│   ├── index.tsx          # ホーム画面
+│   └── [...missing].tsx   # 404ハンドラー
+├── app-example/           # 参考実装（タブ、モーダル等）
+├── assets/                # 画像・静的アセット
+├── components/            # 再利用可能なUIコンポーネント
+├── constants/             # テーマ・アプリケーション定数
+├── hooks/                 # カスタムReactフック
+└── scripts/               # ユーティリティスクリプト
+```
 
-## Get a fresh project
+## 使用方法
 
-When you're ready, run:
+### 1. テンプレートからプロジェクトを作成
+
+```bash
+# GitHubテンプレート機能を使用して新しいリポジトリを作成
+# または、このリポジトリをクローン
+git clone https://github.com/[your-username]/expo-template.git [your-project-name]
+cd [your-project-name]
+```
+
+### 2. 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 3. 開発サーバーの起動
+
+```bash
+# インタラクティブメニュー付きで起動
+npx expo start
+
+# プラットフォーム別に起動
+npx expo start --ios        # iOSシミュレーター
+npx expo start --android    # Androidエミュレーター
+npx expo start --web        # Webブラウザ
+```
+
+### 4. プロジェクトのリセット（オプション）
+
+既存の`app/`ディレクトリをクリーンな状態にしたい場合：
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+このコマンドは現在のコードを`app-example/`に移動し、新しい`app/`ディレクトリを作成します。
 
-## Learn more
+## 開発ガイドライン
 
-To learn more about developing your project with Expo, look at the following resources:
+### コード品質の維持
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+# Lintチェック
+npm run lint
+```
 
-## Join the community
+### コンポーネント作成時の注意
 
-Join our community of developers creating universal apps.
+- 既存のコードパターンに従う
+- `ThemedText`と`ThemedView`を使用して一貫したテーマを維持
+- TypeScriptの型定義を必ず追加
+- 絶対パスインポート（`@/`）を使用
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 推奨される開発フロー
+
+1. 新機能はフィーチャーブランチで開発
+2. コミット前にLintチェックを実行
+3. 意味のあるコミットメッセージを記述
+4. プルリクエストでコードレビューを実施
+
+## 技術仕様
+
+- **Expo SDK**: 54
+- **React Native**: 0.81.5（新アーキテクチャ対応）
+- **React**: 19.1.0（実験的コンパイラ使用）
+- **TypeScript**: Strictモード有効
+- **Node.js**: 18.x以上推奨
+
+## 貢献方法
+
+このテンプレートの改善に貢献していただける方は：
+
+1. このリポジトリをフォーク
+2. フィーチャーブランチを作成（`git checkout -b feature/amazing-feature`）
+3. 変更をコミット（`git commit -m '新機能: 素晴らしい機能を追加'`）
+4. ブランチにプッシュ（`git push origin feature/amazing-feature`）
+5. プルリクエストを作成
+
+## ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+## サポート
+
+問題が発生した場合や質問がある場合は、[Issues](https://github.com/[your-username]/expo-template/issues)でお知らせください。
+
+---
+
+このテンプレートがあなたのExpo開発をより効率的にすることを願っています！ 🚀
